@@ -1,0 +1,40 @@
+.page {
+  width: 100%;
+  background: var(--brand-white);
+  direction: ltr;
+}
+
+.section {
+  padding: 22px 20px 60px;
+}
+
+.container {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.actionBtn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--brand-secondary);
+  color: var(--brand-white);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.262);
+  font-family: "Cairo", sans-serif; 
+  width: 260px;
+}
+
+.actionBtn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}

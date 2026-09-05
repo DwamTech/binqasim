@@ -1,0 +1,87 @@
+@media print {
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+
+    body {
+        background-color: white !important;
+        font-family: 'Cairo', sans-serif !important;
+        color: black !important;
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    /* Hide UI elements that shouldn't be printed */
+    nav,
+    aside,
+    header,
+    button,
+    .no-print,
+    .ToastViewport,
+    a[href^="/admin"] {
+        display: none !important;
+    }
+
+    /* Reset layout margins/padding caused by sidebar */
+    main {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        overflow: visible !important;
+    }
+
+    /* Enhance Table readability */
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-bottom: 20px !important;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd !important;
+        padding: 8px !important;
+        text-align: right !important;
+    }
+
+    th {
+        background-color: #f3f4f6 !important;
+        font-weight: bold !important;
+    }
+
+    /* Print Header Section (Hidden on screen) */
+    .print-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #eee;
+    }
+
+    .print-header-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .print-footer {
+        display: block !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 10px;
+        color: #666;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+}
+
+/* Hide print elements on screen */
+.print-header,
+.print-footer {
+    display: none;
+}

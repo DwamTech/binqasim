@@ -1,0 +1,29 @@
+.card {
+  background: var(--brand-white);
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.14);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.title {
+  padding: 12px 14px;
+  color: var(--brand-black);
+  font-weight: 800;
+  font-size: 18px;
+  text-align: right;
+}
+

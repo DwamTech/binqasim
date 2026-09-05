@@ -1,0 +1,33 @@
+.main {
+  width: 100%;
+  background: var(--brand-white);
+}
+
+.imageSection {
+  width: 100%;
+  padding: 36px 20px;
+  background: var(--brand-white);
+  display: flex;
+  justify-content: center;
+}
+
+.imageInner {
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.fullImage {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 768px) {
+  .imageInner {
+    width: 94%;
+  }
+}
+

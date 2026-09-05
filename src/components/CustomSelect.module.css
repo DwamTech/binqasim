@@ -1,0 +1,93 @@
+.select {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid #eee;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--brand-black);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  font-family: inherit;
+}
+
+.button:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(56, 95, 88, 0.12);
+  transform: translateY(-1px);
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.valueText {
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.placeholder {
+  color: #757575;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.chevron {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--brand-secondary);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  min-width: 100%;
+  background: var(--brand-white);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  z-index: 60;
+  max-height: 280px;
+  overflow-y: auto;
+  font-family: inherit;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  color: var(--brand-black);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.option:hover {
+  background: rgba(56, 95, 88, 0.08);
+}
+
+.optionActive {
+  background: rgba(56, 95, 88, 0.12);
+}
+
+.optionSelected {
+  background: rgba(56, 95, 88, 0.10);
+  color: var(--brand-primary);
+}

@@ -1,0 +1,60 @@
+.main {
+  width: 100%;
+  background: var(--brand-white);
+}
+
+.actions {
+  width: 100%;
+  padding: clamp(28px, 5vw, 48px) 20px;
+  background: linear-gradient(135deg, #f9fbfa, #f3f7f6);
+  display: flex;
+  justify-content: center;
+}
+
+.actionCard {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 18px;
+  padding: clamp(18px, 4vw, 28px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.actionTitle {
+  color: var(--brand-primary);
+  font-weight: 900;
+  font-size: clamp(22px, 4vw, 30px);
+  margin-bottom: 6px;
+}
+
+.actionText {
+  color: var(--brand-black);
+  font-weight: 700;
+  line-height: 2.1;
+  font-size: clamp(16px, 2.6vw, 18px);
+  margin-bottom: 14px;
+}
+
+.checkBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid var(--brand-primary);
+  background: var(--brand-primary);
+  color: var(--brand-white);
+  font-weight: 900;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .checkBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  }
+}
