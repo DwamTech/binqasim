@@ -27,8 +27,14 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 90vh;
   overflow: hidden;
+  background: #000;
+}
+
+.heroVideo {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .hero::after {
@@ -38,68 +44,6 @@
   background: rgba(0, 0, 0, 0.445);
   z-index: 1;
   pointer-events: none;
-}
-
-.about {
-  width: 100%;
-  padding: 48px 20px;
-  background: var(--brand-white);
-}
-
-.aboutInner {
-  display: grid;
-  grid-template-columns:  2fr 1fr;
-  align-items: center;
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.aboutImageWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.aboutImage {
-  width: 350px;
-  height: 350px;
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
-  animation: float 6s ease-in-out infinite;
-}
-
-.aboutText {
-  text-align: right;
-  animation: fadeInUp 800ms ease both;
-  width: 90%;
-}
-
-.aboutTitle {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--brand-primary);
-  margin-bottom: 12px;
-}
-
-.aboutPara {
-  font-size: 18px;
-  line-height: 2;
-  color: var(--foreground);
-  text-align: justify;
-  margin-bottom: 8px;
-  font-weight: 700;
-  width: 100%;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .intro {
@@ -183,13 +127,13 @@ a.secondary {
 .sliderNews {
   width: 100%;
   background: #9E9077;
-  padding: clamp(28px, 6vw, 56px) 20px;
+  padding: clamp(48px, 7vw, 76px) 24px;
 }
 
 .sliderPolicies {
   width: 100%;
   background: var(--brand-white);
-  padding: clamp(28px, 6vw, 56px) 20px;
+  padding: clamp(48px, 7vw, 76px) 24px;
 }
 
 .sliderInner {
@@ -202,7 +146,7 @@ a.secondary {
   color: var(--brand-white);
   font-weight: 900;
   font-size: clamp(22px, 4vw, 32px);
-  margin-bottom: clamp(16px, 3vw, 24px);
+  margin-bottom: clamp(22px, 3vw, 32px);
 }
 
 .sliderTitleDark {
@@ -210,7 +154,7 @@ a.secondary {
   color: var(--brand-black);
   font-weight: 900;
   font-size: clamp(22px, 4vw, 32px);
-  margin-bottom: clamp(16px, 3vw, 24px);
+  margin-bottom: clamp(22px, 3vw, 32px);
 }
 
 .sliderTrack {
@@ -224,6 +168,11 @@ a.secondary {
 .sliderViewport {
   width: 100%;
   overflow: hidden;
+}
+
+.sliderStage {
+  position: relative;
+  padding-inline: 58px;
 }
 
 .sliderItem {
@@ -283,14 +232,6 @@ a.secondary {
   }
 }
 
-.sliderNav {
-  margin-top: clamp(10px, 2vw, 16px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
 .sliderCta {
   margin-top: 14px;
   display: flex;
@@ -322,23 +263,38 @@ a.secondary {
 }
 
 .navBtn {
-  height: 38px;
-  width: 38px;
-  border-radius: 10px;
-  border: 1px solid var(--brand-primary);
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.68);
   color: var(--brand-primary);
   background: var(--brand-white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.15s ease, background 0.15s ease;
-  margin: 24px 0;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(25, 52, 47, 0.22);
+  transform: translateY(-50%);
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.navBtnPrevious {
+  right: 0;
+}
+
+.navBtnNext {
+  left: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .navBtn:hover {
-    transform: translateY(-1px);
-    background: #f5f5f5;
+    color: var(--brand-white);
+    background: var(--brand-primary);
+    box-shadow: 0 16px 36px rgba(25, 52, 47, 0.3);
+    transform: translateY(-50%) scale(1.06);
   }
 }
 
@@ -353,37 +309,136 @@ a.secondary {
 }
 @media (max-width: 600px) {
   .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-/* Edge-to-edge on mobile */
-@media (max-width: 600px) {
-  .main {
     padding: 0;
   }
-  .about,
+
   .sliderNews,
   .sliderPolicies,
   .fullImageSection,
   .mapSection {
-    padding: 0;
+    padding-inline: 18px;
   }
+
+  .sliderNews,
+  .sliderPolicies {
+    padding-block: 44px;
+  }
+
   .sliderInner {
     margin: 0;
   }
+
   .sliderTrack {
-    padding: 0;
+    padding: 4px;
+  }
+}
+
+.policyFeaturedCard {
+  display: grid;
+  grid-template-columns: minmax(280px, 350px) minmax(250px, 1fr);
+  width: min(760px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(56, 95, 88, 0.12);
+  border-radius: 20px;
+  color: var(--brand-black);
+  background: var(--brand-white);
+  box-shadow: 0 18px 50px rgba(31, 62, 56, 0.11);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.policyFeaturedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(31, 62, 56, 0.16);
+}
+
+.policyImageWrap {
+  aspect-ratio: 7 / 5;
+  overflow: hidden;
+  background: #f6f3ed;
+}
+
+.policyImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.policyFeaturedCard:hover .policyImage {
+  transform: scale(1.025);
+}
+
+.policyContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.policyBadge {
+  margin-bottom: 12px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  color: var(--brand-primary);
+  background: rgba(56, 95, 88, 0.09);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.policyContent h3 {
+  margin: 0 0 12px;
+  color: var(--brand-primary);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 900;
+}
+
+.policyDate {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #66716e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.policyDate svg {
+  color: var(--brand-secondary);
+}
+
+.policyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 28px;
+  color: var(--brand-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .sliderStage {
+    padding-inline: 38px;
+  }
+
+  .navBtn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .policyFeaturedCard {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .policyContent {
+    padding: 24px;
+  }
+
+  .policyLink {
+    margin-top: 20px;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -404,22 +459,9 @@ a.secondary {
   }
 }
 
-@media (max-width: 992px) {
-  .aboutInner {
-    grid-template-columns: 1fr;
-  }
-  .aboutText {
-    text-align: center;
-    width: 100%;
-  }
-  .aboutPara {
-    text-align: center;
-  }
-}
-
 .fullImageSection {
   width: 100%;
-  padding: 32px 20px;
+  padding: clamp(48px, 7vw, 80px) 24px;
   background: var(--brand-white);
   display: flex;
   align-items: center;
@@ -430,16 +472,15 @@ a.secondary {
   width: 100%;
   max-width: 1200px;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border-radius: 14px;
+  box-shadow: 0 16px 42px rgba(22, 45, 41, 0.12);
   filter: contrast(1.06) saturate(1.08);
 }
 
 .applySection {
   position: relative;
   width: 100%;
-  height: 38vh;
-  min-height: 180px;
+  height: clamp(260px, 34vw, 420px);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -461,15 +502,16 @@ a.secondary {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+  width: min(900px, calc(100% - 40px));
   text-align: center;
 }
 
 .applyTitle {
   color: rgb(3, 37, 3);
   font-weight: 900;
-  font-size: 60px;
-  opacity: 70%;
+  font-size: clamp(28px, 4vw, 48px);
+  opacity: 0.82;
   letter-spacing: -1px;
   text-shadow:
     0 0 6px rgba(255, 255, 255, 0.727),
@@ -503,11 +545,10 @@ a.secondary {
 
 @media (max-width: 768px) {
   .applyTitle {
-    font-size: 34px;
+    font-size: clamp(25px, 8vw, 34px);
   }
   .applySection {
-    height: 24vh;
-    min-height: 160px;
+    height: 240px;
   }
 }
 
@@ -515,8 +556,7 @@ a.secondary {
 .heroAlt {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 420px;
+  height: clamp(440px, 66vw, 720px);
   overflow: hidden;
 }
 
@@ -538,12 +578,12 @@ a.secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: clamp(28px, 5vw, 56px) 24px;
 }
 
 .heroCardWrap {
   position: relative;
-  width: min(100vw, 1000px);
+  width: min(920px, 100%);
   aspect-ratio: 16 / 9;
   border-radius: 20px;
   overflow: hidden;
@@ -551,8 +591,6 @@ a.secondary {
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: saturate(1.1);
-  height: 650px;
-
 }
 
 .heroCardInner {
@@ -571,11 +609,11 @@ a.secondary {
 
 @media (max-width: 768px) {
   .heroAlt {
-    height: 70vh;
+    height: auto;
     min-height: 360px;
   }
   .heroCardWrap {
-    width: 94vw;
+    width: 100%;
     border-radius: 16px;
   }
 }
@@ -583,8 +621,8 @@ a.secondary {
 .statsSection {
   position: relative;
   width: 100%;
-  height: 60vh;
-  min-height: 380px;
+  min-height: 440px;
+  padding: clamp(52px, 7vw, 80px) 24px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -603,8 +641,8 @@ a.secondary {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1200px;
-  padding: clamp(16px, 4vw, 24px);
+  max-width: 1180px;
+  padding: clamp(24px, 4vw, 40px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: rgba(255, 255, 255, 0.06);
@@ -633,7 +671,7 @@ a.secondary {
   padding: clamp(16px, 3vw, 24px);
   border-radius: 14px;
   min-width: 200px;
-  max-width: 260px;
+  max-width: 250px;
   flex: 1 1 220px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -689,14 +727,19 @@ a.secondary {
 
 .mapSection {
   width: 100%;
-  padding: 48px 20px;
+  padding: clamp(52px, 7vw, 80px) 24px;
   background: var(--brand-white);
 }
 
 .mapInner {
-  max-width: 1500px;
+  max-width: 1180px;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mapInner iframe {
+  display: block;
+  height: clamp(320px, 40vw, 450px);
 }

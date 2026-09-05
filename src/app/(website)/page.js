@@ -2,59 +2,47 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { FiLink, FiFileText, FiUsers, FiChevronLeft, FiChevronRight, FiCalendar } from "react-icons/fi";
+import WaqfIntroSection from "../../components/WaqfIntroSection";
+import {
+  FiLink,
+  FiFileText,
+  FiUsers,
+  FiChevronLeft,
+  FiChevronRight,
+  FiCalendar,
+} from "react-icons/fi";
 import { FaHandshake, FaBuilding } from "react-icons/fa";
 import { useRef, useEffect } from "react";
 
 export default function Home() {
   const newsRef = useRef(null);
-  const policiesRef = useRef(null);
   const newsItems = [
     {
-      src: "/WhatsApp-Image-2023-04-12-at-16.36.28-350x250.jpeg",
-      title: "اتفاقية شراكة وتعاون بين وقف الصالح وجمعية قيم",
+      src: "/home-slider/WhatsApp-Image-2023-11-18-at-11.28.01-750x563.jpeg",
+      title: "لقاء تطوير المبادرات والبرامج الوقفية",
       id: 1,
-      slug: "sharika-waqf-alsaleh-qeem",
+      href: "/news",
     },
     {
-      src: "/WhatsApp-Image-2023-04-12-at-16.36.28-1-350x250.jpeg",
-      title: "توزيع 200 سلة غذائية في وقف الصالح",
+      src: "/home-slider/WhatsApp-Image-2023-11-18-at-11.28.02-1-750x563.jpeg",
+      title: "اجتماع فريق العمل وبحث سبل تنمية الأثر",
       id: 2,
-      slug: "tawzee-salat-ghithaeia",
+      href: "/news",
     },
     {
-      src: "/WhatsApp-Image-2023-03-28-at-17.39.19-350x250.jpeg",
-      title: "مشروع إفطار 100 صائم يومياً بمكة",
+      src: "/home-slider/WhatsApp-Image-2023-11-18-at-11.28.02-2-750x563.jpeg",
+      title: "برنامج سمو لتطوير العمل المؤسسي",
       id: 3,
-      slug: "iftar-100-saem-makkah",
+      href: "/news",
     },
     {
-      src: "/صورة-واتساب-بتاريخ-2024-04-27-في-20.19.12_12ce8470-1024x576.jpg",
-      title: "فعالية خيرية بدعم الوقف",
+      src: "/home-slider/WhatsApp-Image-2023-11-18-at-11.28.02-350x250.jpeg",
+      title: "جانب من ورشة العمل وتبادل الخبرات",
       id: 4,
-      slug: "faalia-khairia",
+      href: "/news",
     },
   ];
-  const policiesItems = [
-    {
-      src: "/card-a-1.jpg",
-      title: "لائحة إدارة المخاطر وقف الصالح الخيري",
-      date: "12 إبريل 2023",
-    },
-    {
-      src: "/card-a-1.jpg",
-      title: "لائحة المستنفر - وقف الصالح",
-      date: "12 إبريل 2023",
-    },
-    {
-      src: "/card-a-1.jpg",
-      title: "لائحة تنظيم أعمال التجارة وقف الصالح الخيري",
-      date: "12 إبريل 2023",
-    },
-  ];
-
   const newsLoopItems = [...newsItems, ...newsItems];
-  const policiesLoopItems = [...policiesItems, ...policiesItems];
 
   const scroll = (ref, dir, loopLength) => {
     const el = ref.current;
@@ -98,63 +86,23 @@ export default function Home() {
     return () => clearInterval(id);
   }, [newsItems.length]);
 
-  useEffect(() => {
-    const el = policiesRef.current;
-    if (!el) return;
-    const track = el.firstElementChild;
-    const getStep = () => {
-      const gap = parseFloat(getComputedStyle(track).gap || "0");
-      const card = el.querySelector(`.${styles.sliderItem}`);
-      return card ? card.getBoundingClientRect().width + gap : el.clientWidth * 0.9;
-    };
-    const tick = () => {
-      const step = getStep();
-      const span = step * policiesItems.length;
-      if (el.scrollLeft >= span - step) {
-        el.scrollTo({ left: el.scrollLeft - span, behavior: "auto" });
-      }
-      el.scrollBy({ left: step, behavior: "smooth" });
-    };
-    const id = setInterval(tick, 6000);
-    return () => clearInterval(id);
-  }, [policiesItems.length]);
   return (
     <main className={styles.main}>
       <section className={styles.hero}>
-        <Image
-          src="/ffdsfdf.webp"
-          alt="باب وكسوة الكعبة"
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "bottom 90%" }}
-        />
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="/hero.m4v" type="video/mp4" />
+        </video>
       </section>
-      
-      
-      <section className={styles.about}>
-        <div className={styles.aboutInner}>
-          <div className={styles.aboutText}>
-            <h2 className={styles.aboutTitle}>وقف الصالح</h2>
-            <p className={styles.aboutPara}>
-              وقف خيري مخصص لرعاية طلاب العلم ومساندتهم في سبيل تحصيلهم للعلم والقيام بواجب الدعوة إلى الله تعالى على منهج أهل السنة والجماعة.
-            </p>
-            <p className={styles.aboutPara}>
-              كما أنه يستهدف أبواب البر والخير عموما في حال وجود فائض او حاجة طارئة تتطلب الانتقال الى المصارف الأخرى قبل طلاب العلم
-            </p>
-          </div>
-          <div className={styles.aboutImageWrap}>
-            <Image
-              src="/Untitled-1-removebg-preview-350x350.png"
-              alt="شعار الوقف الصالح"
-              width={350}
-              height={350}
-              className={styles.aboutImage}
-              priority
-            />
-          </div>
-        </div>
-      </section>
+
+      <WaqfIntroSection />
       <section className={styles.applySection}>
         <Image
           src="/75884be2-3e9d-4126-ace3-770ef0c2f071_16x9_1200x676.webp"
@@ -171,7 +119,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section className={styles.fullImageSection}>
+      {/* <section className={styles.fullImageSection}>
         <Image
           src="/صورة-واتساب-بتاريخ-2024-04-27-في-20.19.12_12ce8470-1024x576.jpg"
           alt="صورة كاملة"
@@ -179,35 +127,49 @@ export default function Home() {
           height={576}
           className={styles.fullImage}
         />
-      </section>
+      </section> */}
       <section id="news" className={styles.sliderNews}>
         <div className={styles.sliderInner}>
           <h2 className={styles.sliderTitleLight}>أخبار الوقف</h2>
-          <div className={styles.sliderViewport} ref={newsRef}>
-            <div className={styles.sliderTrack}>
-              {newsLoopItems.map((item, idx) => (
-                <Link className={styles.sliderItem} key={`news-${idx}`} href={`/news/${item.slug || newsItems[idx % newsItems.length].slug}`}>
-                  <div className={styles.sliderImageWrap}>
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      width={350}
-                      height={250}
-                      className={styles.sliderImage}
-                      priority={idx < 2}
-                    />
-                  </div>
-                  <div className={styles.sliderItemTitle}>{item.title}</div>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className={styles.sliderNav}>
-            <button type="button" className={styles.navBtn} onClick={() => scroll(newsRef, -1, newsItems.length)} aria-label="السابق">
-              <FiChevronLeft size={20} />
+          <div className={styles.sliderStage}>
+            <button
+              type="button"
+              className={`${styles.navBtn} ${styles.navBtnPrevious}`}
+              onClick={() => scroll(newsRef, -1, newsItems.length)}
+              aria-label="السابق"
+            >
+              <FiChevronRight size={22} />
             </button>
-            <button type="button" className={styles.navBtn} onClick={() => scroll(newsRef, 1, newsItems.length)} aria-label="التالي">
-              <FiChevronRight size={20} />
+            <div className={styles.sliderViewport} ref={newsRef}>
+              <div className={styles.sliderTrack}>
+                {newsLoopItems.map((item, idx) => (
+                  <Link
+                    className={styles.sliderItem}
+                    key={`news-${idx}`}
+                    href={item.href}
+                    aria-label={item.title}
+                  >
+                    <div className={styles.sliderImageWrap}>
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        width={350}
+                        height={250}
+                        className={styles.sliderImage}
+                        priority={idx < 2}
+                      />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <button
+              type="button"
+              className={`${styles.navBtn} ${styles.navBtnNext}`}
+              onClick={() => scroll(newsRef, 1, newsItems.length)}
+              aria-label="التالي"
+            >
+              <FiChevronLeft size={22} />
             </button>
           </div>
           <div className={styles.sliderCta}>
@@ -217,7 +179,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-        <section className={styles.heroAlt}>
+        {/* <section className={styles.heroAlt}>
         <Image
           src="/باب_وكسوة_الكعبة.jpg"
           alt="خلفية زخارف الكعبة"
@@ -240,47 +202,34 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       
       <section id="policies" className={styles.sliderPolicies}>
         <div className={styles.sliderInner}>
           <h2 className={styles.sliderTitleDark}>اللوائح والسياسات</h2>
-          <div className={styles.sliderViewport} ref={policiesRef}>
-            <div className={styles.sliderTrack}>
-              {policiesLoopItems.map((item, idx) => (
-                <div className={styles.sliderItem} key={`policy-${idx}`}>
-                  <div className={styles.sliderImageWrap}>
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      width={350}
-                      height={250}
-                      className={styles.sliderImage}
-                      priority={idx < 2}
-                    />
-                  </div>
-                  <div className={styles.sliderItemTitle}>{item.title}</div>
-                  <div className={styles.sliderMeta}>
-                    <FiCalendar size={16} />
-                    <span>{item.date}</span>
-                  </div>
-                </div>
-              ))}
+          <a
+            className={styles.policyFeaturedCard}
+            href="https://binqasim.sa/books/%d8%aa%d9%82%d8%b1%d9%8a%d8%b1-%d8%a7%d8%b6%d8%a7%d8%ad%d9%8a/"
+          >
+            <div className={styles.policyImageWrap}>
+              <Image
+                src="/aladha.jpg"
+                alt="تقرير أضاحي"
+                width={350}
+                height={250}
+                className={styles.policyImage}
+              />
             </div>
-          </div>
-          <div className={styles.sliderNav}>
-            <button type="button" className={styles.navBtn} onClick={() => scroll(policiesRef, -1, policiesItems.length)} aria-label="السابق">
-              <FiChevronLeft size={20} />
-            </button>
-            <button type="button" className={styles.navBtn} onClick={() => scroll(policiesRef, 1, policiesItems.length)} aria-label="التالي">
-              <FiChevronRight size={20} />
-            </button>
-          </div>
-          {/* <div className={styles.sliderCta}>
-            <Link className={styles.readMoreSingle} href="/news">
-              اقرأ المزيد
-            </Link>
-          </div> */}
+            <div className={styles.policyContent}>
+              <span className={styles.policyBadge}>تقرير</span>
+              <h3>تقرير أضاحي</h3>
+              <div className={styles.policyDate}>
+                <FiCalendar aria-hidden />
+                <time dateTime="2025-01-17">17 يناير، 2025</time>
+              </div>
+              <span className={styles.policyLink}>عرض التقرير <FiChevronLeft aria-hidden /></span>
+            </div>
+          </a>
         </div>
       </section>
       <section className={styles.statsSection}>

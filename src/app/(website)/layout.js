@@ -11,16 +11,7 @@ import {
   FaFacebookF,
   FaEnvelope,
   FaPhone,
-  FaSmile,
-  FaLightbulb,
-  FaExclamationTriangle,
-  FaClipboard,
-  FaUsers,
-  FaNewspaper,
-  FaFileAlt,
-  FaCoins,
   FaMapMarkerAlt,
-  FaCreditCard,
 } from "react-icons/fa";
 
 export const metadata = {
@@ -51,8 +42,15 @@ export default function RootLayout({ children }) {
           <div className={styles.topbar}>
             <div className={styles.topbarInner}>
               <div className={styles.rightGroup}>
-                <FaEnvelope size={18} aria-hidden />
-                <a href="mailto:info@waqfalsaleh.org.sa" className={styles.email}>info@waqfalsaleh.org.sa</a>
+                <a href="tel:0138337589" className={styles.contactLink} dir="ltr">
+                  <FaPhone size={13} aria-hidden />
+                  <span>0138337589</span>
+                </a>
+                <span className={styles.divider} />
+                <a href="mailto:info@wqfalthani.com" className={styles.contactLink} dir="ltr">
+                  <FaEnvelope size={13} aria-hidden />
+                  <span>info@wqfalthani.com</span>
+                </a>
               </div>
               <div className={styles.leftGroup}>
                 <span className={styles.date}>{dateStr}</span>
@@ -67,58 +65,60 @@ export default function RootLayout({ children }) {
           </div>
           <div className={styles.header}>
             <div className={styles.headerInner}>
-              <div className={styles.logoLeft}>
-                <Link href="/"><Image src="/وقف-الغيث.jpeg" alt="وقف  الغيث" width={160} height={56} priority /></Link>
+              <div className={styles.brandLogo}>
+                <Link href="/" aria-label="العودة إلى الصفحة الرئيسية">
+                  <Image
+                    src="/ben-logo.png"
+                    alt="وقف عبد الله بن قاسم آل ثاني"
+                    width={260}
+                    height={99}
+                    className={styles.headerLogoImage}
+                    priority
+                  />
+                </Link>
               </div>
               <HeaderNav />
-              <div className={styles.logoRight}>
-                <Link href="/"><Image src="/الوقف.png" alt="وقف الصالح الخيري" width={200} height={60} priority /></Link>
-              </div>
             </div>
           </div>
         </header>
         {children}
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
-            <div className={styles.footerCol}>
-              <h4>الوقف الصالح</h4>
-              <p className={styles.description}>وقف خيري مخصص لرعاية طلاب العلم ومساندتهم في سبيل تحصيلهم للعلم والقيام بواجب الدعوة إلى الله تعالى على منهج أهل السنة والجماعة.</p>
-              <p className={styles.description}>كما أنه يستهدف أبواب البر والخير عموما في حال وجود فائض او حاجة طارئة تتطلب الانتقال الى المصارف الأخرى قبل طلاب العلم.</p>
+            <div className={`${styles.footerCol} ${styles.footerAbout}`}>
+              <h4>وقف عبد الله بن قاسم</h4>
+              <Link href="/" className={styles.footerLogo} aria-label="الصفحة الرئيسية لوقف عبد الله بن قاسم">
+                <Image
+                  src="/ben-logo.png"
+                  alt="وقف عبد الله بن قاسم آل ثاني"
+                  width={220}
+                  height={84}
+                />
+              </Link>
+              <p className={styles.description}>هو وقف خيري يتم الصرف منه على الأعمال الخيرية حسب شروط الواقف.</p>
             </div>
-            <div className={styles.footerCol}>
+            <nav className={styles.footerCol} aria-label="أقسام الموقع">
               <h4>أقسام الموقع</h4>
               <ul>
-                <li><FaFileAlt className={styles.iconSecondary} />إقرار الصك</li>
-                <li><FaCoins className={styles.iconPrimary} />مصارف الريع</li>
-                <li><FaUsers className={styles.iconSecondary} />مجلس النظارة</li>
-                <li><FaNewspaper className={styles.iconPrimary} />أخبار الوقف</li>
+                <li><Link href="/news">الأخبار</Link></li>
+                <li><Link href="/funds">المصارف الشرعية</Link></li>
+                <li><Link href="/books-policies">اللوائح والسياسات</Link></li>
               </ul>
-            </div>
-            <div className={styles.footerCol}>
+            </nav>
+            <nav className={styles.footerCol} aria-label="روابط سريعة">
               <h4>روابط سريعة</h4>
               <ul>
-                <li><FaPhone className={styles.iconPrimary} />تواصل معنا</li>
-                <li><FaSmile className={styles.iconSecondary} />تقييم رضا المستفيدين</li>
-                <li><FaLightbulb className={styles.iconPrimary} />صندوق الاقتراحات</li>
-                <li><FaExclamationTriangle className={styles.iconSecondary} />صندوق الشكاوي</li>
+                <li><Link href="/about">من نحن</Link></li>
+                <li><a href="mailto:info@wqfalthani.com">تواصل معنا</a></li>
+                <li><Link href="/complaints">صندوق الشكاوى</Link></li>
               </ul>
-            </div>
-            <div className={styles.footerCol}>
-              <h4>تفاصيل أخرى</h4>
-              <ul>
-                <li><FaClipboard className={styles.iconSecondary} />طلبات الدعم</li>
-                <li><FaMapMarkerAlt className={styles.iconPrimary} />مقر الوقف: مكة المكرمة</li>
-                <li><FaCreditCard className={styles.iconSecondary} />رقم الصك: 320101002583</li>
-                <li><FaEnvelope className={styles.iconPrimary} />البريد الإلكتروني: info@waqfalsaleh.org.sa</li>
-              </ul>
-            </div>
-          </div>
-          <div className={styles.footerBottom}>
-            <div className={styles.footerBottomInner}>
-              <span>تصميم وتطوير شركة </span>
-              <a href="https://dwam-tech.com/" target="_blank" rel="noopener noreferrer" aria-label="Dwam Tech">
-                <Image src="/dwam.png" alt="Dwam Tech" width={28} height={28} style={{ borderRadius: "50%" }} />
-              </a>
+            </nav>
+            <div className={`${styles.footerCol} ${styles.footerContact}`}>
+              <h4>تواصل معنا</h4>
+              <address>
+                <p><FaMapMarkerAlt aria-hidden /><span><strong>العنوان:</strong> الدمام - حي الريان</span></p>
+                <p><FaPhone aria-hidden /><a href="tel:0138337589"><strong>رقم هاتف:</strong> <span dir="ltr">0138337589</span></a></p>
+                <p><FaEnvelope aria-hidden /><a href="mailto:info@wqfalthani.com"><strong>البريد:</strong> <span dir="ltr">info@wqfalthani.com</span></a></p>
+              </address>
             </div>
           </div>
         </footer>

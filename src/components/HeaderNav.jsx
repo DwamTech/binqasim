@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../app/(website)/layout.module.css";
 import {
   FaHome,
@@ -26,13 +26,31 @@ import {
   FaYoutube,
   FaTwitter,
   FaFacebookF,
+  FaSearch,
 } from "react-icons/fa";
+
+const searchablePages = [
+  { title: "الرئيسية", href: "/" },
+  { title: "عن الوقف", href: "/about" },
+  { title: "اللوائح والسياسات", href: "/books-policies" },
+  { title: "مصارف الريع", href: "/funds" },
+  { title: "التقارير المالية", href: "/reports/financial" },
+  { title: "التقارير السنوية", href: "/reports/annual" },
+  { title: "أخبار الوقف", href: "/news" },
+  { title: "تقييم رضا المستفيدين", href: "/satisfaction" },
+  { title: "صندوق الاقتراحات", href: "/suggestions" },
+  { title: "صندوق الشكاوى", href: "/complaints" },
+  { title: "طلبات الدعم", href: "/support" },
+  { title: "متابعة طلب دعم", href: "/support/check" },
+];
 
 export default function HeaderNav() {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [govOpen, setGovOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const isHome = pathname === "/";
   const isNews = pathname.startsWith("/news");
   const isGovernmentActive =
@@ -45,6 +63,20 @@ export default function HeaderNav() {
     pathname.startsWith("/suggestions") ||
     pathname.startsWith("/complaints");
   const isSupportActive = pathname.startsWith("/support");
+  const normalizedQuery = searchQuery.trim().toLocaleLowerCase("ar");
+  const searchResults = normalizedQuery
+    ? searchablePages.filter((page) =>
+        page.title.toLocaleLowerCase("ar").includes(normalizedQuery)
+      )
+    : searchablePages;
+
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setSearchOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
 
   return (
     <nav className={styles.navBar} aria-label="التنقل الرئيسي">
@@ -79,12 +111,78 @@ export default function HeaderNav() {
       </ul>
       <button
         type="button"
+        className={styles.searchButton}
+        aria-label="فتح البحث"
+        aria-expanded={searchOpen}
+        onClick={() => setSearchOpen(true)}
+      >
+        <FaSearch aria-hidden />
+      </button>
+      <button
+        type="button"
         className={styles.hamburgerBtn}
         aria-label="فتح القائمة الجانبية"
         onClick={() => setSidebarOpen(true)}
       >
         <FaBars />
       </button>
+      {searchOpen && (
+        <div
+          className={styles.searchOverlay}
+          role="presentation"
+          onMouseDown={() => setSearchOpen(false)}
+        >
+          <section
+            className={styles.searchDialog}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="search-dialog-title"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <div className={styles.searchDialogHeader}>
+              <div>
+                <span className={styles.searchEyebrow}>بحث الموقع</span>
+                <h2 id="search-dialog-title">إلى أين تريد الذهاب؟</h2>
+              </div>
+              <button
+                type="button"
+                className={styles.searchCloseButton}
+                aria-label="إغلاق البحث"
+                onClick={() => setSearchOpen(false)}
+              >
+                <FaTimes aria-hidden />
+              </button>
+            </div>
+            <label className={styles.searchField}>
+              <FaSearch aria-hidden />
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="ابحث عن صفحة أو خدمة..."
+                autoFocus
+              />
+            </label>
+            <div className={styles.searchResults} aria-live="polite">
+              {searchResults.length > 0 ? (
+                searchResults.map((page) => (
+                  <Link
+                    href={page.href}
+                    className={styles.searchResult}
+                    key={page.href}
+                    onClick={() => setSearchOpen(false)}
+                  >
+                    <FaSearch aria-hidden />
+                    <span>{page.title}</span>
+                  </Link>
+                ))
+              ) : (
+                <p className={styles.noSearchResults}>لا توجد نتائج مطابقة للبحث.</p>
+              )}
+            </div>
+          </section>
+        </div>
+      )}
       <div
         className={`${styles.sidebarOverlay} ${sidebarOpen ? styles.open : ""}`}
         onClick={() => setSidebarOpen(false)}
@@ -105,7 +203,7 @@ export default function HeaderNav() {
             <FaTimes />
           </button>
           <div className={styles.sidebarLogo}>
-            <Image src="/الوقف.png" alt="وقف الصالح الخيري" width={180} height={50} />
+            <Image src="/ben-logo.png" alt="وقف عبد الله بن قاسم آل ثاني" width={180} height={69} />
           </div>
         </div>
         <div className={styles.sidebarBody}>
@@ -166,8 +264,8 @@ export default function HeaderNav() {
           </Link>
         </div>
         <div className={styles.sidebarFooter}>
-          <a href="mailto:info@waqfalsaleh.org.sa" className={styles.sidebarEmail}>
-            <FaEnvelope />info@waqfalsaleh.org.sa
+          <a href="mailto:info@wqfalthani.com" className={styles.sidebarEmail}>
+            <FaEnvelope />info@wqfalthani.com
           </a>
           <div className={styles.sidebarSocial}>
             <a href="#" aria-label="YouTube"><FaYoutube /></a>
