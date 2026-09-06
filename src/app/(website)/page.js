@@ -103,7 +103,7 @@ export default function Home() {
       </section>
 
       <WaqfIntroSection />
-      <section className={styles.applySection}>
+      {/* <section className={styles.applySection}>
         <Image
           src="/75884be2-3e9d-4126-ace3-770ef0c2f071_16x9_1200x676.webp"
           alt="خلفية للتقديم على طلبات الدعم"
@@ -118,7 +118,7 @@ export default function Home() {
             اضغط هنا <FiLink size={18} />
           </a>
         </div>
-      </section>
+      </section> */}
       {/* <section className={styles.fullImageSection}>
         <Image
           src="/صورة-واتساب-بتاريخ-2024-04-27-في-20.19.12_12ce8470-1024x576.jpg"
@@ -207,9 +207,9 @@ export default function Home() {
       <section id="policies" className={styles.sliderPolicies}>
         <div className={styles.sliderInner}>
           <h2 className={styles.sliderTitleDark}>اللوائح والسياسات</h2>
-          <a
+          <Link
             className={styles.policyFeaturedCard}
-            href="https://binqasim.sa/books/%d8%aa%d9%82%d8%b1%d9%8a%d8%b1-%d8%a7%d8%b6%d8%a7%d8%ad%d9%8a/"
+            href="/reports/adahi"
           >
             <div className={styles.policyImageWrap}>
               <Image
@@ -229,7 +229,7 @@ export default function Home() {
               </div>
               <span className={styles.policyLink}>عرض التقرير <FiChevronLeft aria-hidden /></span>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
       <section className={styles.statsSection}>

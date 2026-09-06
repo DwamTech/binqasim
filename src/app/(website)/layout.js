@@ -15,8 +15,8 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "وقف الصالح الخيري",
-  description: "موقع وقف الصالح الخيري",
+  title: "وقف عبد الله بن قاسم",
+  description: "موقع وقف عبد الله بن قاسم",
 };
 
 const tajawal = Tajawal({
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
             <div className={`${styles.footerCol} ${styles.footerAbout}`}>
-              <h4>وقف عبد الله بن قاسم</h4>
+              {/* <h4>وقف عبد الله بن قاسم</h4> */}
               <Link href="/" className={styles.footerLogo} aria-label="الصفحة الرئيسية لوقف عبد الله بن قاسم">
                 <Image
                   src="/ben-logo.png"
@@ -119,6 +119,22 @@ export default function RootLayout({ children }) {
                 <p><FaPhone aria-hidden /><a href="tel:0138337589"><strong>رقم هاتف:</strong> <span dir="ltr">0138337589</span></a></p>
                 <p><FaEnvelope aria-hidden /><a href="mailto:info@wqfalthani.com"><strong>البريد:</strong> <span dir="ltr">info@wqfalthani.com</span></a></p>
               </address>
+            </div>
+          </div>
+          <div className={styles.footerBottom}>
+            <div className={styles.footerBottomInner}>
+              <nav className={styles.legalLinks} aria-label="الروابط القانونية">
+                <Link href="/privacy-policy">سياسة الخصوصية</Link>
+                <span aria-hidden />
+                <Link href="/terms-and-conditions">الشروط والأحكام</Link>
+              </nav>
+              <div className={styles.developerCredit}>
+                <span>تصميم وتطوير شركة</span>
+                <a href="https://dwam-tech.com/" target="_blank" rel="noopener noreferrer" aria-label="شركة دوام للتقنية">
+                  <Image src="/dwam.png" alt="شركة دوام" width={30} height={30} />
+                  <strong>دوام</strong>
+                </a>
+              </div>
             </div>
           </div>
         </footer>

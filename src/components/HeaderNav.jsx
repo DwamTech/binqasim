@@ -33,9 +33,11 @@ const searchablePages = [
   { title: "الرئيسية", href: "/" },
   { title: "عن الوقف", href: "/about" },
   { title: "اللوائح والسياسات", href: "/books-policies" },
-  { title: "مصارف الريع", href: "/funds" },
+  { title: "مسودة لائحة العمل الداخلية", href: "/books-policies/internal-work-regulations" },
+  { title: "المصارف الشرعية", href: "/funds" },
   { title: "التقارير المالية", href: "/reports/financial" },
   { title: "التقارير السنوية", href: "/reports/annual" },
+  { title: "تقرير أضاحي", href: "/reports/adahi" },
   { title: "أخبار الوقف", href: "/news" },
   { title: "تقييم رضا المستفيدين", href: "/satisfaction" },
   { title: "صندوق الاقتراحات", href: "/suggestions" },
@@ -89,7 +91,7 @@ export default function HeaderNav() {
           <div className={styles.dropdownMenu}>
             <Link href="/about" className={pathname.startsWith("/about") ? styles.dropdownActive : ""}><FaInfoCircle className={styles.iconPrimary} />عن الوقف</Link>
             <Link href="/books-policies" className={pathname.startsWith("/books-policies") ? styles.dropdownActive : ""}><FaBook className={styles.iconSecondary} />اللوائح والسياسات</Link>
-            <Link href="/funds" className={pathname.startsWith("/funds") ? styles.dropdownActive : ""}><FaCoins className={styles.iconPrimary} />مصارف الريع</Link>
+            <Link href="/funds" className={pathname.startsWith("/funds") ? styles.dropdownActive : ""}><FaCoins className={styles.iconPrimary} />المصارف الشرعية</Link>
             <Link href="/reports/financial" className={pathname.startsWith("/reports/financial") ? styles.dropdownActive : ""}><FaChartBar className={styles.iconSecondary} />التقارير المالية</Link>
             <Link href="/reports/annual" className={pathname.startsWith("/reports/annual") ? styles.dropdownActive : ""}><FaCalendarAlt className={styles.iconPrimary} />التقارير السنوية</Link>
           </div>
@@ -227,7 +229,7 @@ export default function HeaderNav() {
               <FaBook className={styles.iconSecondary} />اللوائح والسياسات
             </Link>
             <Link href="/funds" className={styles.sidebarSubLink} onClick={() => setSidebarOpen(false)}>
-              <FaCoins className={styles.iconPrimary} />مصارف الريع
+              <FaCoins className={styles.iconPrimary} />المصارف الشرعية
             </Link>
             <Link href="/reports/financial" className={styles.sidebarSubLink} onClick={() => setSidebarOpen(false)}>
               <FaChartBar className={styles.iconSecondary} />التقارير المالية

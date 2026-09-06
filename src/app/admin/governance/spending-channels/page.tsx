@@ -20,8 +20,8 @@ export default function SpendingChannelsPage() {
                             <FiFileText className="text-primary" size={24} />
                         </div>
                         <div>
-                            <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900">مصارف الريع</h1>
-                            <p className="text-sm text-gray-700 mt-1">إدارة محتوى صفحة 'مصارف الريع' وتوضيح كيفية توزيع أموال وعوائد الوقف.</p>
+                            <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900">المصارف الشرعية</h1>
+                            <p className="text-sm text-gray-700 mt-1">إدارة محتوى صفحة 'المصارف الشرعية' وتوضيح كيفية توزيع أموال وعوائد الوقف.</p>
                         </div>
                     </div>
                     <button
@@ -35,9 +35,9 @@ export default function SpendingChannelsPage() {
             </section>
 
             <ContentEditorPage
-                pageTitle="عن مصارف الريع"
+                pageTitle="عن المصارف الشرعية"
                 contentKey="spending_channels"
-                description="إدارة محتوى صفحة 'مصارف الريع' وتوضيح كيفية توزيع أموال وعوائد الوقف."
+                description="إدارة محتوى صفحة 'المصارف الشرعية' وتوضيح كيفية توزيع أموال وعوائد الوقف."
                 hideHeader
                 saveRef={saveRef as React.MutableRefObject<() => Promise<void>>}
             />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FiArrowLeft, FiCalendar, FiHome } from "react-icons/fi";
 import styles from "./page.module.css";
 import { newsItems } from "../newsData";
 
@@ -10,10 +11,11 @@ export function generateStaticParams() {
   return newsItems.map((item) => ({ slug: item.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const item = newsItems.find((n) => n.slug === params.slug);
-  if (!item) return { title: "خبر غير موجود | وقف الصالح الخيري" };
-  return { title: `${item.title} | وقف الصالح الخيري` };
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = newsItems.find((n) => n.slug === slug);
+  if (!item) return { title: "خبر غير موجود | وقف عبد الله بن قاسم" };
+  return { title: `${item.title} | وقف عبد الله بن قاسم` };
 }
 
 const renderBlock = (block, idx) => {
@@ -65,47 +67,50 @@ const renderBlock = (block, idx) => {
   return null;
 };
 
-export default function NewsDetailsPage({ params }) {
-  const item = newsItems.find((n) => n.slug === params.slug);
+export default async function NewsDetailsPage({ params }) {
+  const { slug } = await params;
+  const item = newsItems.find((n) => n.slug === slug);
   if (!item) notFound();
 
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
         <Image
-          src="/باب_وكسوة_الكعبة.jpg"
-          alt="باب وكسوة الكعبة"
+          src={item.coverSrc}
+          alt=""
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          className={styles.heroImage}
         />
-        <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>{item.title}</h1>
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroPattern} aria-hidden />
+        <div className={`${styles.container} ${styles.heroInner}`}>
+          <nav className={styles.breadcrumbs} aria-label="مسار التنقل">
+            <Link href="/"><FiHome aria-hidden />الرئيسية</Link>
+            <span>/</span>
+            <Link href="/news">أخبار الوقف</Link>
+            <span>/</span>
+            <span aria-current="page">{item.title}</span>
+          </nav>
+
+          <div className={styles.heroContent}>
+            <div className={styles.heroMeta}>
+              <span className={styles.heroChip}>{item.category}</span>
+              <span className={styles.heroDate}><FiCalendar aria-hidden />{item.date}</span>
+            </div>
+            <h1 className={styles.heroTitle}>{item.title}</h1>
+            <p>{item.excerpt}</p>
+            <a href="#article-content" className={styles.continueLink}>
+              متابعة قراءة الخبر
+              <FiArrowLeft aria-hidden />
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} id="article-content">
         <div className={styles.container}>
-          <header className={styles.articleHeader}>
-            <div className={styles.metaRow}>
-              <span className={styles.date}>{item.date}</span>
-              <span className={styles.chip}>{item.category}</span>
-            </div>
-            <h2 className={styles.title}>{item.title}</h2>
-          </header>
-
-          <div className={styles.cover}>
-            <Image
-              src={item.coverSrc}
-              alt={item.title}
-              fill
-              priority
-              sizes="(max-width: 600px) 100vw, 980px"
-              className={styles.coverImage}
-            />
-          </div>
-
           <article className={styles.content}>{item.blocks.map(renderBlock)}</article>
 
           <div className={styles.backRow}>

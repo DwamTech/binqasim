@@ -1,0 +1,323 @@
+.page {
+  width: 100%;
+  color: #172824;
+  background: #f4f7f5;
+}
+
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 0 clamp(60px, 8vw, 94px);
+  color: #fff;
+  background: linear-gradient(135deg, #153a33, #385f58 60%, #4c756d);
+}
+
+.heroPattern {
+  position: absolute;
+  top: -180px;
+  inset-inline-end: -100px;
+  width: 460px;
+  height: 460px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+  box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.025), 0 0 0 120px rgba(255, 255, 255, 0.018);
+}
+
+.breadcrumbs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(38px, 5vw, 60px);
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+}
+
+.breadcrumbs a {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  align-items: center;
+  gap: clamp(44px, 7vw, 90px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: #dfd2bb;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.heroContent h1 {
+  max-width: 760px;
+  margin: 15px 0;
+  font-size: clamp(34px, 5vw, 59px);
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.heroContent > p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 600;
+  line-height: 1.9;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.075);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 30px;
+}
+
+.primaryAction,
+.secondaryAction,
+.viewerHeader > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 47px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 900;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primaryAction {
+  color: #244d46;
+  background: #d9cdb6;
+  box-shadow: 0 11px 26px rgba(7, 26, 22, 0.18);
+}
+
+.secondaryAction {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.viewerHeader > a:hover {
+  transform: translateY(-2px);
+}
+
+.visualCard {
+  overflow: hidden;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 21px;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 25px 65px rgba(8, 27, 23, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.visualImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.visualCaption {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 8px 3px;
+}
+
+.visualCaption > svg {
+  width: 29px;
+  height: 29px;
+  padding: 7px;
+  border-radius: 8px;
+  color: #244d46;
+  background: #d9cdb6;
+}
+
+.visualCaption span,
+.visualCaption strong {
+  display: block;
+}
+
+.visualCaption span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.visualCaption strong {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.viewerSection {
+  padding: clamp(58px, 8vw, 94px) 0;
+  scroll-margin-top: 78px;
+}
+
+.viewerHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.viewerHeader > div > span {
+  color: var(--brand-secondary);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.viewerHeader h2 {
+  margin: 4px 0 5px;
+  color: var(--brand-primary);
+  font-size: clamp(27px, 4vw, 40px);
+  font-weight: 900;
+}
+
+.viewerHeader p {
+  margin: 0;
+  color: #6c7975;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.viewerHeader > a {
+  flex-shrink: 0;
+  color: #fff;
+  background: var(--brand-primary);
+  box-shadow: 0 10px 24px rgba(56, 95, 88, 0.2);
+}
+
+.documentFrame {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 95, 88, 0.12);
+  border-radius: 20px;
+  background: #e8eeeb;
+  box-shadow: 0 24px 68px rgba(25, 54, 48, 0.13);
+}
+
+.documentFrame iframe {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 760px;
+  border: 0;
+  background: #fff;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 11px;
+  padding: 30px;
+  color: #6c7975;
+  text-align: center;
+}
+
+.fallback > svg {
+  width: 42px;
+  height: 42px;
+  color: var(--brand-primary);
+}
+
+.fallback p {
+  margin: 0;
+}
+
+.fallback a {
+  color: var(--brand-primary);
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .visualCard {
+    width: min(540px, 100%);
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 32px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .viewerHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .documentFrame,
+  .documentFrame iframe {
+    min-height: 560px;
+    border-radius: 13px;
+  }
+}

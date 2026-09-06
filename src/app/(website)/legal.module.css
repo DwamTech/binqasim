@@ -1,0 +1,98 @@
+.page {
+  color: #1a332d;
+  background: #f5f7f6;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 330px;
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(circle at 15% 20%, rgba(181, 154, 106, 0.2), transparent 28%), linear-gradient(125deg, #173f36, #0d2923);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: -120px;
+  bottom: -230px;
+  width: 430px;
+  height: 430px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.018), 0 0 0 120px rgba(255, 255, 255, 0.012);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(960px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.hero span {
+  color: #dfc9a3;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.hero h1 {
+  margin: 8px 0 0;
+  font-size: clamp(36px, 6vw, 62px);
+  font-weight: 900;
+}
+
+.contentSection {
+  padding: clamp(55px, 8vw, 90px) 0;
+}
+
+.contentCard {
+  padding: clamp(26px, 5vw, 55px);
+  border: 1px solid rgba(36, 76, 67, 0.1);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 22px 60px rgba(20, 54, 47, 0.09);
+}
+
+.intro {
+  margin: 0 0 30px;
+  color: #596b66;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.sections {
+  display: grid;
+  gap: 16px;
+}
+
+.section {
+  padding: 22px;
+  border: 1px solid rgba(36, 76, 67, 0.09);
+  border-radius: 15px;
+  background: #f8faf8;
+}
+
+.section h2 {
+  margin: 0 0 8px;
+  color: #244c43;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.section p {
+  margin: 0;
+  color: #5d6e69;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.95;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 28px, 960px);
+  }
+}

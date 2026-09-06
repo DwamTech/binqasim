@@ -71,7 +71,7 @@ const searchItems: SearchItem[] = [
         keywords: ["لائحة", "إضافة", "أضافة", "جديدة", "إنشاء", "انشاء", "create", "add"]
     },
     {
-        title: "مصارف الريع",
+        title: "المصارف الشرعية",
         href: "/admin/governance/spending-channels",
         icon: <FiShield />,
         category: "الحوكمة",

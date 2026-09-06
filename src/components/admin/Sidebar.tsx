@@ -58,7 +58,7 @@ const navItems: NavItem[] = [
                     { title: "إضافة لائحة", href: "/admin/governance/regulations/create" },
                 ]
             },
-            { title: "مصارف الريع", href: "/admin/governance/spending-channels" },
+            { title: "المصارف الشرعية", href: "/admin/governance/spending-channels" },
             {
                 title: "التقارير المالية",
                 submenu: [
