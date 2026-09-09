@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-labelledby="title">
-  <title>CMS Dashboard</title>
-  <rect x="1" y="1" width="46" height="46" rx="12" fill="#01231C" stroke="#D9BB5D" stroke-width="2"/>
-  <rect x="10" y="10" width="12" height="12" rx="3" fill="#D9BB5D"/>
-  <rect x="26" y="10" width="12" height="18" rx="3" fill="#156D54"/>
-  <rect x="10" y="26" width="12" height="12" rx="3" fill="#156D54"/>
-  <rect x="26" y="32" width="12" height="6" rx="3" fill="#D9BB5D"/>
-  <text x="60" y="31" fill="#FFFDF6" font-family="Cairo, Montserrat, sans-serif" font-size="20" font-weight="700">CMS Dashboard</text>
-</svg>

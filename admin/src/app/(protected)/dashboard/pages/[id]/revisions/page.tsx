@@ -1,1 +1,0 @@
-import {requireDashboardPermission} from '@/server/dal/app-auth-guards';import {RevisionHistory} from '@/features/pages/presentation/revision-history';export default async function Page({params}:{params:Promise<{id:string}>}){const actor=await requireDashboardPermission('pages.view');const{id}=await params;return <RevisionHistory id={id} actor={actor}/>;}

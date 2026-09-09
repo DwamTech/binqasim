@@ -1,0 +1,332 @@
+.main {
+  width: 100%;
+  background: var(--brand-white);
+}
+
+.introSection {
+  width: 100%;
+  padding: clamp(32px, 6vw, 56px) 20px;
+  background: #385f582f;
+}
+
+.introCard {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 28px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  animation: floatIn 700ms ease both;
+
+}
+
+.introTitle {
+  text-align: center;
+  color: var(--brand-primary);
+  font-weight: 900;
+  font-size: clamp(22px, 4vw, 32px);
+  margin-bottom: 10px;
+}
+
+.introText {
+  text-align: center;
+  color: var(--brand-black);
+  font-weight: 700;
+  line-height: 2.1;
+  font-size: clamp(16px, 2.6vw, 20px);
+}
+
+.ratingSection {
+  width: 100%;
+  padding: clamp(24px, 5vw, 40px) 20px;
+  background: var(--brand-white);
+  display: flex;
+  justify-content: center;
+}
+
+.ratingInner {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  padding: clamp(16px, 4vw, 26px);
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ratingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.label {
+  color: var(--brand-black);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.rateBtn {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid var(--brand-primary);
+  background: var(--brand-primary);
+  color: var(--brand-white);
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rateBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.placeholderStars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  pointer-events: none;
+  justify-content: center;
+}
+
+.starPlaceholder {
+  color: #f3b301;
+  opacity: 0.45;
+  font-size: 22px;
+}
+
+.starPlaceholderHalf {
+  color: #f3b301;
+  opacity: 0.45;
+  font-size: 22px;
+}
+
+.starBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .starBtn:hover {
+    transform: translateY(-1px);
+    background: #fafafa;
+  }
+}
+
+.star {
+  color: var(--brand-secondary);
+  font-size: 22px;
+}
+
+.starActive {
+  color: #f3b301;
+  font-size: 24px;
+}
+
+.ratingMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-black);
+  font-weight: 700;
+  justify-content: center;
+}
+
+.avg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sep {
+  width: 1px;
+  height: 16px;
+  background: #ddd;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AVERAGE STARS DISPLAY
+═══════════════════════════════════════════════════════════════════════════ */
+.avgStar {
+  color: #f3b301;
+  font-size: 24px;
+}
+
+.avgStarHalf {
+  color: #f3b301;
+  font-size: 24px;
+}
+
+.avgStarEmpty {
+  color: #e0e0e0;
+  font-size: 24px;
+}
+
+.loadingText {
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STAR BUTTON STATES
+═══════════════════════════════════════════════════════════════════════════ */
+.starBtnActive {
+  background: rgba(243, 179, 1, 0.1);
+  border-color: #f3b301;
+}
+
+.starsDisabled .starBtn {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.starsSubmitting .starBtn {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUBMITTING OVERLAY
+═══════════════════════════════════════════════════════════════════════════ */
+.submittingOverlay {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-primary);
+  font-weight: 600;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(56, 95, 88, 0.2);
+  border-top-color: var(--brand-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOAST NOTIFICATION
+═══════════════════════════════════════════════════════════════════════════ */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: toastSlideIn 0.4s ease;
+}
+
+.toastsuccess {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.toasterror {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.toastClose {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .toast {
+    left: 16px;
+    right: 16px;
+    transform: none;
+  }
+
+  @keyframes toastSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
