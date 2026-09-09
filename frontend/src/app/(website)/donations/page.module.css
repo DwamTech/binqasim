@@ -1,0 +1,62 @@
+.page { --green: #155d36; --deep: #082c19; --gold: #c9a65f; color: #30463a; background: #fff; }
+.container { width: min(1180px, calc(100% - 44px)); margin: auto; }
+.hero { position: relative; display: flex; min-height: clamp(510px, 72vh, 700px); align-items: center; overflow: hidden; isolation: isolate; }
+.hero > img { z-index: -2; object-fit: cover; object-position: center; }
+.heroShade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(6,37,19,.4), rgba(6,37,19,.94)); }
+.heroCopy { max-width: 760px; padding: 65px 0; color: #fff; }
+.heroCopy > span, .sectionTitle > span, .featuredGrid > div:last-child > span { color: #dfc685; font-size: 12px; font-weight: 900; }
+.heroCopy > span { display: inline-flex; padding: 8px 13px; align-items: center; gap: 7px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.07); }
+.hero h1 { max-width: 700px; margin: 17px 0 12px; color: #fff; font-size: clamp(43px, 7vw, 78px); line-height: 1.28; }
+.hero p { max-width: 650px; margin: 0; color: rgba(255,255,255,.78); font-size: clamp(16px, 2vw, 20px); font-weight: 600; line-height: 1.95; }
+.heroActions { display: flex; margin-top: 26px; flex-wrap: wrap; gap: 9px; }
+.heroActions a, .featuredGrid a, .projectBody a, .donateButton { display: inline-flex; padding: 13px 19px; align-items: center; gap: 9px; border-radius: 7px 17px 7px 17px; font-size: 13px; font-weight: 900; }
+.heroActions a:first-child { color: #183d26; background: #fff; }
+.heroActions a:last-child { border: 1px solid rgba(255,255,255,.25); color: #fff; }
+.features { padding: clamp(65px, 9vw, 105px) 0; background: #f7f8f4; }
+.sectionTitle { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+.sectionTitle > span, .featuredGrid > div:last-child > span { color: #9d7939; }
+.sectionTitle h2, .featuredGrid h2, .projectsHero h1, .productCopy h1 { margin: 7px 0 11px; color: #173e26; font-size: clamp(30px, 4.5vw, 46px); line-height: 1.45; }
+.sectionTitle p { margin: 0; color: #66746b; font-weight: 600; line-height: 1.9; }
+.featureGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+.featureGrid article { padding: 27px; border: 1px solid rgba(21,93,54,.1); border-radius: 8px 24px 8px 24px; background: #fff; box-shadow: 0 15px 40px rgba(17,61,32,.06); }
+.featureGrid svg { width: 27px; height: 27px; color: var(--green); }
+.featureGrid h3 { margin: 17px 0 8px; color: #183e26; font-size: 19px; }
+.featureGrid p { margin: 0; color: #69776e; font-size: 14px; font-weight: 600; line-height: 1.8; }
+.featured { padding: clamp(65px, 9vw, 105px) 0; }
+.featuredGrid { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(35px, 7vw, 80px); }
+.featuredImage, .productImage { position: relative; min-height: 420px; overflow: hidden; border-radius: 9px 35px 9px 35px; box-shadow: 0 23px 60px rgba(14,58,30,.12); }
+.featuredImage img, .productImage img { object-fit: cover; }
+.featuredGrid p, .productCopy p { margin: 0 0 22px; color: #647269; font-size: 16px; font-weight: 600; line-height: 2; }
+.featuredGrid a, .projectBody a, .donateButton { width: fit-content; color: #fff; background: var(--green); }
+
+.projectsHero { padding: clamp(70px, 9vw, 110px) 0 45px; text-align: center; background: radial-gradient(circle at 10% 5%, rgba(201,166,95,.16), transparent 25%), #f7f8f4; }
+.projectsHero p { max-width: 680px; margin: auto; color: #66746b; line-height: 1.9; }
+.projectsSection { padding: 25px 0 clamp(70px, 9vw, 110px); background: #f7f8f4; }
+.projectsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.projectCard { overflow: hidden; border: 1px solid rgba(21,93,54,.1); border-radius: 8px 25px 8px 25px; background: #fff; box-shadow: 0 16px 45px rgba(17,61,32,.07); }
+.projectImage { position: relative; min-height: 235px; overflow: hidden; }
+.projectImage img { object-fit: cover; }
+.projectBody { padding: 22px; }
+.projectBody small { color: #a17d3d; font-size: 11px; font-weight: 900; }
+.projectBody h2 { margin: 7px 0 8px; color: #183f27; font-size: 20px; }
+.projectBody p { min-height: 75px; margin: 0 0 17px; color: #69776e; font-size: 13px; font-weight: 600; line-height: 1.8; }
+.projectBody a { padding: 10px 15px; font-size: 12px; }
+
+.productSection { padding: clamp(70px, 9vw, 115px) 0; background: radial-gradient(circle at 8% 5%, rgba(201,166,95,.14), transparent 24%), #f7f8f4; }
+.breadcrumbs { display: flex; margin-bottom: 25px; flex-wrap: wrap; gap: 8px; color: #748078; font-size: 12px; font-weight: 700; }
+.breadcrumbs a { color: var(--green); }
+.productGrid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(35px, 7vw, 80px); }
+.productImage { min-height: 500px; background: #e9efe8; }
+.productImage::after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, transparent 55%, rgba(5,41,20,.25)); }
+.productCopy > span { color: #a17d3d; font-size: 12px; font-weight: 900; }
+.price { display: flex; width: fit-content; margin: 0 0 20px; padding: 10px 15px; align-items: baseline; gap: 5px; border-radius: 7px 15px 7px 15px; color: #174b2d; background: #e5efe7; }
+.price strong { font-size: 25px; }.price small { font-size: 12px; font-weight: 800; }
+.donationBox { padding: 22px; border: 1px solid rgba(21,93,54,.12); border-radius: 8px 23px 8px 23px; background: #fff; box-shadow: 0 16px 45px rgba(17,61,32,.07); }
+.donationBox label { display: block; margin-bottom: 10px; color: #173f27; font-size: 13px; font-weight: 900; }
+.amounts { display: grid; margin-bottom: 15px; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+.amounts span { padding: 10px; border: 1px solid rgba(21,93,54,.15); border-radius: 6px 12px 6px 12px; color: #385044; background: #f7f9f6; font-size: 12px; font-weight: 800; text-align: center; }
+.donateButton { justify-content: center; width: 100%; }
+.donationNote { margin-top: 10px; color: #829087; font-size: 11px; font-weight: 600; line-height: 1.7; }
+
+@media (max-width: 820px) { .featuredGrid, .productGrid { grid-template-columns: 1fr; }.featureGrid, .projectsGrid { grid-template-columns: repeat(2, 1fr); }.productImage { min-height: 420px; } }
+@media (max-width: 590px) { .container { width: calc(100% - 30px); }.featureGrid, .projectsGrid { grid-template-columns: 1fr; }.hero { min-height: 500px; }.featuredImage, .productImage { min-height: 340px; }.amounts { grid-template-columns: repeat(2, 1fr); }.projectBody p { min-height: 0; } }

@@ -1,0 +1,373 @@
+.stack {
+  display: grid;
+  gap: var(--space-5);
+}
+.filters {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(13rem, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+.filterField {
+  min-inline-size: 0;
+}
+.filterActions {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+.filters label,
+.fileField {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+.filters label > span {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--space-5);
+}
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0;
+  min-inline-size: 0;
+  overflow: hidden;
+  padding: 0;
+  border-color: color-mix(in srgb, var(--color-brown) 18%, transparent);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--color-green) 30%, transparent);
+  box-shadow: var(--shadow-md);
+}
+.thumbnailFrame {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-primary-soft),
+      var(--color-accent-soft)
+    ),
+    var(--color-surface-muted);
+}
+.thumbnailFrame::after {
+  position: absolute;
+  inset: auto 0 0;
+  block-size: 35%;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-dark-green) 28%, transparent),
+    transparent
+  );
+  content: "";
+  pointer-events: none;
+}
+.preview {
+  inline-size: 100%;
+  aspect-ratio: 16/10;
+  display: block;
+  object-fit: cover;
+  background: var(--color-surface-muted);
+}
+.placeholder {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  aspect-ratio: 16/10;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.mediaKind {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-dark-green) 78%, transparent);
+  color: var(--color-gold);
+  box-shadow: 0 6px 14px
+    color-mix(in srgb, var(--color-dark-green) 24%, transparent);
+  backdrop-filter: blur(8px);
+  font-size: 0.7rem;
+  z-index: 1;
+}
+.meta {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  min-inline-size: 0;
+  padding: 1rem 1rem 0.85rem;
+  border-block-start: 1px solid
+    color-mix(in srgb, var(--color-brown) 10%, transparent);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface),
+    var(--color-glass-card)
+  );
+}
+.cardHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.name {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.fileNameBlock {
+  display: grid;
+  flex: 1;
+  gap: 0.35rem;
+  min-inline-size: 0;
+}
+.extension {
+  inline-size: fit-content;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--color-brown) 20%, transparent);
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-brown);
+  font-size: 0.6rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+}
+.fileMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+}
+.actions,
+.formActions,
+.fileActions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+.card .actions {
+  padding: 0.85rem 1rem 1rem;
+  border-block-start: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+}
+.card .actions > * {
+  flex: 1;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-start: var(--space-5);
+}
+.uploadList {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+.uploadItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.fileSummary {
+  display: grid;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+.error {
+  color: var(--color-danger);
+  margin: 0;
+}
+.imagePreview {
+  inline-size: 4rem;
+  block-size: 4rem;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+.dialogMedia {
+  display: block;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  margin: auto;
+  object-fit: contain;
+  background: #001b16;
+}
+.dialogImage {
+  inline-size: auto;
+  block-size: auto;
+}
+.dialogVideo {
+  inline-size: 100%;
+  block-size: 100%;
+}
+.dialogInfo {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: var(--space-4);
+  block-size: 100%;
+  min-block-size: 0;
+}
+.dialogMediaFrame {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  min-block-size: 0;
+  block-size: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 50% 20%, var(--color-teal), transparent 60%),
+    var(--color-dark-green);
+}
+.dialogPlayButton {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  inline-size: clamp(4rem, 7vw, 5.25rem);
+  block-size: clamp(4rem, 7vw, 5.25rem);
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 80%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-dark-green) 84%, transparent);
+  color: var(--color-gold);
+  box-shadow:
+    0 14px 34px color-mix(in srgb, var(--color-dark-green) 42%, transparent),
+    inset 0 0 0 0.35rem rgb(255 255 255 / 8%);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+.dialogPlayButton span {
+  margin-inline-start: 0.2rem;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+}
+.dialogPlayButton:hover {
+  transform: translate(-50%, -50%) scale(1.07);
+  background: color-mix(in srgb, var(--color-green) 94%, transparent);
+  box-shadow:
+    0 18px 42px color-mix(in srgb, var(--color-dark-green) 48%, transparent),
+    inset 0 0 0 0.35rem rgb(255 255 255 / 12%);
+}
+.dialogPlayButton:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-gold) 52%, transparent);
+  outline-offset: 4px;
+}
+.dialogMediaFrame .placeholder {
+  min-block-size: 0;
+  block-size: 100%;
+  aspect-ratio: auto;
+  background: transparent;
+  color: var(--color-sidebar-muted);
+}
+.dialogMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+.dialogMeta > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+.dialogName {
+  flex: 1;
+}
+.dialogName > div {
+  display: grid;
+  gap: 0.25rem;
+  min-inline-size: 0;
+}
+.dialogFileIcon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 0.8rem;
+  background: var(--color-primary);
+  color: var(--color-gold);
+  box-shadow: 0 6px 14px var(--color-brand-shadow);
+  font-size: 0.78rem;
+}
+.dialogMeta strong {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--color-text);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.dialogDetail {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+@media (max-width: 40rem) {
+  .uploadItem {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  .filters > * {
+    flex: 1 1 100%;
+  }
+  .filterActions > * {
+    flex: 1;
+  }
+  .dialogMeta {
+    gap: var(--space-2);
+    padding: 0.7rem;
+  }
+  .dialogFileIcon {
+    inline-size: 2.1rem;
+    block-size: 2.1rem;
+  }
+}

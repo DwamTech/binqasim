@@ -1,0 +1,12 @@
+.section { padding: clamp(76px, 10vw, 126px) 24px; background: #fff; }
+.inner { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: clamp(42px, 8vw, 100px); width: min(1180px, 100%); margin: auto; }
+.videoWrap { position: relative; overflow: hidden; border-radius: 8px 56px 8px 56px; background: #092b15; box-shadow: 25px 28px 0 #edf3ed, 0 28px 65px rgba(18,63,31,.18); }
+.videoWrap video { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.playBadge { position: absolute; inset-inline-start: 20px; bottom: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border-radius: 999px; color: #fff; background: rgba(7,34,16,.78); font-size: 12px; font-weight: 800; backdrop-filter: blur(7px); pointer-events: none; }
+.copy > span { color: #a18450; font-size: 13px; font-weight: 900; letter-spacing: .08em; }
+.copy h2 { margin: 10px 0 13px; color: #173d24; font-size: clamp(32px, 4vw, 49px); line-height: 1.5; }
+.copy p { margin: 0; color: #637169; font-size: 16px; line-height: 2; }
+.copy a { display: inline-flex; align-items: center; gap: 8px; min-height: 49px; margin-top: 26px; padding: 0 21px; border: 1px solid #16552a; border-radius: 11px; color: #16552a; font-weight: 900; }
+:global(html[dir="ltr"]) .copy a svg { transform: rotate(180deg); }
+@media (max-width: 800px) { .inner { grid-template-columns: 1fr; }.copy { order: -1; max-width: 680px; }.videoWrap { box-shadow: 14px 16px 0 #edf3ed, 0 24px 50px rgba(18,63,31,.14); } }
+@media (max-width: 520px) { .section { padding-inline: 18px; }.videoWrap { border-radius: 6px 30px 6px 30px; } }

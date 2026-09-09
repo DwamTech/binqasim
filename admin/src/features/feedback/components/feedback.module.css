@@ -1,0 +1,567 @@
+.page,
+.detailPage,
+.detailMain,
+.detailSkeleton {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.heroIcon,
+.requestMark {
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, var(--color-primary), #7566ff);
+  box-shadow: 0 12px 30px
+    color-mix(in srgb, var(--color-primary) 25%, transparent);
+  color: white;
+  font-weight: 900;
+}
+
+.heroIcon {
+  inline-size: 3.4rem;
+  block-size: 3.4rem;
+  font-size: 1.5rem;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-muted);
+}
+
+.tabs button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-align: start;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.tabs button:hover {
+  transform: translateY(-1px);
+  background: var(--color-surface);
+}
+
+.tabs button > span {
+  display: grid;
+  grid-row: 1 / 3;
+  place-items: center;
+  inline-size: 2.8rem;
+  block-size: 2.8rem;
+  border-radius: 0.8rem;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.tabs strong,
+.tabs small {
+  display: block;
+}
+
+.tabs small {
+  margin-block-start: 0.2rem;
+  color: var(--color-text-muted);
+}
+
+.tabs .activeTab {
+  border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-text);
+}
+
+.tabs .activeTab > span {
+  background: var(--color-primary-soft);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.metrics article {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at 100% 0,
+      color-mix(in srgb, var(--color-primary) 12%, transparent),
+      transparent 52%
+    ),
+    var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.metrics article::after {
+  position: absolute;
+  inset-block: var(--space-3);
+  inset-inline-start: 0;
+  inline-size: 3px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  content: "";
+}
+
+.metrics span,
+.metrics small {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.metrics strong {
+  display: block;
+  margin-block: 0.2rem;
+  color: var(--color-text);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns:
+    1.2fr minmax(16rem, 2fr) minmax(10rem, 1fr) minmax(8rem, 0.7fr)
+    auto;
+  align-items: end;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.filters label,
+.statusCard label {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.filterHeading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.filterHeading > span {
+  display: grid;
+  place-items: center;
+  inline-size: 2.6rem;
+  block-size: 2.6rem;
+  border-radius: 0.8rem;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.filterHeading h2,
+.filterHeading p,
+.tableHeader h2,
+.tableHeader p,
+.cardTitle h2,
+.cardTitle p {
+  margin: 0;
+}
+
+.filterHeading p,
+.tableHeader p,
+.cardTitle p {
+  margin-block-start: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+.searchField > div {
+  position: relative;
+}
+
+.searchField input {
+  inline-size: 100%;
+  padding-inline-end: 2.5rem;
+}
+
+.searchField button {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0.4rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.tableCard {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.tableHeader > span {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.tableScroll {
+  overflow: visible;
+}
+
+.tableCard table {
+  inline-size: 100%;
+  min-inline-size: 0;
+  border-collapse: collapse;
+}
+
+.tableCard th,
+.tableCard td {
+  padding: var(--space-4);
+  border-block-end: 1px solid var(--color-border);
+  text-align: start;
+  vertical-align: middle;
+}
+
+.tableCard th {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+}
+
+.tableCard tbody tr {
+  transition: background 150ms ease;
+}
+
+.tableCard tbody tr:hover {
+  background: var(--color-primary-soft);
+}
+
+.tableCard td strong,
+.tableCard td small {
+  display: block;
+}
+
+.tableCard td small {
+  margin-block-start: 0.2rem;
+  color: var(--color-text-muted);
+}
+
+.tableCard code {
+  color: var(--color-primary);
+  direction: ltr;
+  font-weight: 800;
+}
+
+.messagePreview {
+  display: -webkit-box;
+  max-inline-size: 22rem;
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-text-muted);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.7;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.statusBadge i {
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.status_new {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.status_under_review {
+  background: var(--color-warning-surface);
+  color: var(--color-warning);
+}
+
+.status_resolved {
+  background: var(--color-success-surface);
+  color: var(--color-success);
+}
+
+.status_rejected {
+  background: var(--color-danger-surface);
+  color: var(--color-danger);
+}
+
+.status_archived {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+}
+
+.quickStatus {
+  display: block;
+  max-inline-size: 9rem;
+  margin-block-start: var(--space-2);
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.74rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+.skeletons {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.successNotice,
+.errorNotice {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 800;
+}
+
+.successNotice {
+  border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent);
+  background: var(--color-success-surface);
+  color: var(--color-success);
+}
+
+.errorNotice {
+  border: 1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);
+  background: var(--color-danger-surface);
+  color: var(--color-danger);
+}
+
+.detailHero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at 90% 0,
+      color-mix(in srgb, var(--color-primary) 16%, transparent),
+      transparent 48%
+    ),
+    var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.requestMark {
+  inline-size: 4rem;
+  block-size: 4rem;
+  font-size: 1.5rem;
+}
+
+.detailHero > div:nth-child(2) > span {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.detailHero h1 {
+  margin-block: 0.2rem;
+  color: var(--color-text);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  overflow-wrap: anywhere;
+}
+
+.detailHero code {
+  color: var(--color-text-muted);
+  direction: ltr;
+}
+
+.detailLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(18rem, 0.75fr);
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.detailCard,
+.statusCard {
+  display: grid;
+  gap: var(--space-4);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.statusCard {
+  position: sticky;
+  inset-block-start: var(--space-4);
+}
+
+.cardTitle {
+  display: flex;
+  gap: var(--space-3);
+  padding-block-end: var(--space-3);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.cardTitle > span {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.fullMessage {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 2;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.detailsList {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.detailsList > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+}
+
+.detailsList dt {
+  color: var(--color-text-muted);
+}
+
+.detailsList dd {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-align: end;
+}
+
+.statusCard form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.statusCard label small {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.backLink {
+  justify-self: start;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+@media (max-width: 76rem) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filterHeading {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 52rem) {
+  .tabs,
+  .metrics,
+  .filters,
+  .detailLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .detailHero {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .detailHero > .statusBadge {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .statusCard {
+    position: static;
+  }
+
+  .pagination {
+    gap: var(--space-2);
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabs button,
+  .tableCard tbody tr {
+    transition: none;
+  }
+}

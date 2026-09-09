@@ -1,0 +1,21 @@
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+.ui-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.ui-page-description,
+.ui-form-message {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}

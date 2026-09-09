@@ -1,0 +1,248 @@
+.fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  margin-block-end: var(--space-2);
+  color: var(--color-text);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.description {
+  margin: calc(var(--space-1) * -1) 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.option {
+  position: relative;
+  display: grid;
+  min-inline-size: 0;
+  min-block-size: 8.5rem;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.option:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--color-primary) 58%,
+    var(--color-border)
+  );
+  background: color-mix(
+    in srgb,
+    var(--color-primary-soft) 48%,
+    var(--color-surface)
+  );
+  transform: translateY(-1px);
+}
+
+.option:has(.input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.option:has(.input:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+
+.option:has(.input:disabled) {
+  opacity: 0.58;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.preview {
+  display: block;
+}
+
+.copy,
+.copy strong,
+.copy small {
+  display: block;
+}
+
+.copy strong {
+  font-size: 0.82rem;
+}
+
+.copy small {
+  margin-block-start: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.indicator {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-end: var(--space-2);
+  display: grid;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: transparent;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.option:has(.input:checked) .indicator {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.layoutPreview {
+  direction: ltr;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+  gap: 0.3rem;
+  inline-size: 100%;
+  block-size: 3.6rem;
+  padding: 0.45rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-md) - 2px);
+  background: var(--color-surface-muted);
+}
+
+.layoutImage {
+  grid-column: 1;
+  grid-row: 1;
+  border-radius: 0.25rem;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 55%,
+      color-mix(in srgb, var(--color-primary) 30%, transparent) 56%
+    ),
+    color-mix(in srgb, var(--color-primary) 18%, var(--color-surface));
+}
+
+.layoutCopy {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1;
+  align-content: center;
+  gap: 0.32rem;
+}
+
+.layoutCopy i {
+  display: block;
+  block-size: 0.28rem;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.layoutCopy i:last-child {
+  inline-size: 68%;
+}
+
+.layoutPreview[data-layout="image-right"] .layoutImage {
+  grid-column: 2;
+}
+
+.layoutPreview[data-layout="image-right"] .layoutCopy {
+  grid-column: 1;
+}
+
+.layoutPreview[data-layout="centered"] {
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.layoutPreview[data-layout="centered"] .layoutImage {
+  display: none;
+}
+
+.layoutPreview[data-layout="centered"] .layoutCopy {
+  grid-column: 1;
+  inline-size: 68%;
+  text-align: center;
+}
+
+.layoutPreview[data-layout="centered"] .layoutCopy i:last-child {
+  inline-size: 72%;
+  margin-inline: auto;
+}
+
+.layoutPreview[data-layout="background"] {
+  grid-template-columns: 1fr;
+  place-items: center;
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 28%,
+    var(--color-surface-muted)
+  );
+}
+
+.layoutPreview[data-layout="background"] .layoutImage {
+  grid-column: 1;
+  inline-size: 100%;
+  opacity: 0.55;
+}
+
+.layoutPreview[data-layout="background"] .layoutCopy {
+  z-index: 1;
+  grid-column: 1;
+  inline-size: 64%;
+  color: var(--color-text);
+}
+
+@media (max-width: 64rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 34rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    min-block-size: auto;
+    grid-template-columns: minmax(6.5rem, 0.42fr) 1fr;
+    align-items: center;
+  }
+}

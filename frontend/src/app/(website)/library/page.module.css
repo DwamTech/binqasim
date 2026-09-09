@@ -1,0 +1,20 @@
+.page { min-height: 100vh; background: #f7f8f5; }
+.hero { position: relative; overflow: hidden; padding: clamp(68px, 9vw, 112px) 24px; text-align: center; background: radial-gradient(circle at 12% 18%, rgba(207,174,105,.3), transparent 38%), radial-gradient(circle at 88% 82%, rgba(22,85,42,.22), transparent 42%), linear-gradient(135deg, #fffdf7, #f2ecde 50%, #dfece1); }
+.hero::after { position: absolute; inset: 0; content: ""; opacity: .35; background-image: radial-gradient(circle, rgba(22,85,42,.14) 1px, transparent 1.2px); background-size: 24px 24px; pointer-events: none; }
+.hero > * { position: relative; z-index: 1; }
+.kicker { display: inline-flex; align-items: center; gap: 9px; color: #9b7d45; font-size: 14px; font-weight: 900; }
+.kicker svg { color: var(--brand-primary); }
+.hero h1 { max-width: 820px; margin: 14px auto; color: #173d24; font-size: clamp(34px, 5vw, 56px); line-height: 1.5; font-weight: 900; }
+.hero p { max-width: 720px; margin: 0 auto; color: #52645a; font-size: 17px; line-height: 2; }
+.libraryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: min(1120px, calc(100% - 48px)); margin: auto; padding: clamp(58px, 8vw, 96px) 0; }
+.bookCard { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid rgba(22,85,42,.1); border-radius: 22px; color: inherit; background: #fff; box-shadow: 0 16px 42px rgba(21,66,34,.08); transition: transform .25s ease, box-shadow .25s ease; }
+.bookCard:hover { transform: translateY(-6px); box-shadow: 0 24px 52px rgba(21,66,34,.14); }
+.cover { position: relative; width: 58%; margin: 30px auto 10px; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 5px 14px 14px 5px; box-shadow: -10px 13px 0 rgba(22,85,42,.08), 0 18px 34px rgba(9,45,20,.18); }
+.cover img { object-fit: cover; }
+.cardContent { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 25px; }
+.cardContent h2 { margin: 0; color: #173d24; font-size: 21px; line-height: 1.6; font-weight: 900; }
+.cardContent p { margin: 8px 0 24px; color: #6c786f; font-size: 14px; line-height: 1.8; }
+.cardContent span { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: var(--brand-primary); font-size: 14px; font-weight: 900; }
+:global(html[dir="ltr"]) .cardContent span svg { transform: rotate(180deg); }
+@media (max-width: 850px) { .libraryGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .libraryGrid { grid-template-columns: 1fr; width: calc(100% - 36px); }.cover { width: 54%; }.hero { padding-block: 58px; } }

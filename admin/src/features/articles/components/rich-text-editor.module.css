@@ -1,0 +1,238 @@
+.editorShell {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+  border-radius: 1.15rem;
+  background: var(--color-surface);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.75) inset,
+    0 14px 38px rgba(15, 67, 55, 0.07);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.editorShell:focus-within {
+  border-color: color-mix(in srgb, var(--color-primary) 72%, transparent);
+  box-shadow:
+    0 0 0 4px var(--color-primary-soft),
+    0 18px 46px rgba(15, 67, 55, 0.1);
+}
+
+.editorShell[data-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.toolbar {
+  position: sticky;
+  z-index: 3;
+  inset-block-start: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.7rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(247, 250, 249, 0.96)
+  );
+  border-block-end: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
+}
+
+.toolbarGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-inline-end: 0.45rem;
+  border-inline-end: 1px solid var(--color-border);
+}
+
+.toolbar button,
+.toolbar select,
+.colorControl {
+  min-block-size: 2.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.toolbar button {
+  min-inline-size: 2.25rem;
+  padding-inline: 0.55rem;
+}
+
+.toolbar button:hover:not(:disabled),
+.toolbar select:hover,
+.colorControl:hover,
+.activeButton {
+  border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.36;
+}
+
+.toolbar select {
+  max-inline-size: 10.5rem;
+  padding-inline: 0.55rem;
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.colorControl {
+  position: relative;
+  display: grid;
+  min-inline-size: 2.25rem;
+  place-items: center;
+  cursor: pointer;
+}
+
+.colorControl input {
+  position: absolute;
+  inset-inline: 0.25rem;
+  inset-block-end: 0.18rem;
+  inline-size: calc(100% - 0.5rem);
+  block-size: 0.22rem;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.editorSurface {
+  min-block-size: 28rem;
+  padding: clamp(1.4rem, 3vw, 2.6rem);
+  color: var(--color-text);
+  font-family: var(--font-cairo), "Cairo", sans-serif;
+  font-size: 1.03rem;
+  line-height: 2;
+  outline: none;
+}
+
+.editorSurface :global([style*="font-family: 'Tajawal'"]) {
+  font-family: var(--font-tajawal), "Tajawal", sans-serif !important;
+}
+
+.editorSurface :global([style*="font-family: 'Noto Kufi Arabic'"]) {
+  font-family:
+    var(--font-noto-kufi-arabic), "Noto Kufi Arabic", sans-serif !important;
+}
+
+.editorSurface :global([style*="font-family: 'Montserrat'"]) {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif !important;
+}
+
+.editorSurface :global(.is-editor-empty:first-child::before) {
+  float: inline-start;
+  block-size: 0;
+  color: var(--color-text-muted);
+  content: attr(data-placeholder);
+  pointer-events: none;
+}
+
+.editorSurface h2,
+.editorSurface h3,
+.editorSurface h4 {
+  margin-block: 1.4em 0.55em;
+  color: var(--color-primary);
+  line-height: 1.5;
+}
+
+.editorSurface h2 {
+  font-size: 1.8rem;
+}
+
+.editorSurface h3 {
+  font-size: 1.45rem;
+}
+
+.editorSurface h4 {
+  font-size: 1.2rem;
+}
+
+.editorSurface p {
+  margin-block: 0 0.85rem;
+}
+
+.editorSurface ul,
+.editorSurface ol {
+  padding-inline-start: 1.8rem;
+}
+
+.editorSurface blockquote {
+  margin-inline: 0;
+  padding: 0.8rem 1rem;
+  border-inline-start: 0.28rem solid var(--color-accent);
+  border-radius: 0.7rem;
+  background: var(--color-accent-soft);
+}
+
+.editorSurface a {
+  color: var(--color-primary);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.editorSurface pre {
+  overflow-x: auto;
+  padding: 1rem;
+  direction: ltr;
+  background: #102a24;
+  color: #f5faf7;
+  border-radius: 0.8rem;
+}
+
+.editorSurface hr {
+  margin-block: 1.8rem;
+  border: 0;
+  border-block-start: 1px solid var(--color-border);
+}
+
+.editorStatus {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 650;
+  background: var(--color-surface-muted);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.editorLoading {
+  display: grid;
+  min-block-size: 24rem;
+  place-items: center;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+}
+
+@media (max-width: 48rem) {
+  .toolbar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .toolbarGroup {
+    flex: 0 0 auto;
+  }
+
+  .editorSurface {
+    min-block-size: 22rem;
+    padding: 1.15rem;
+  }
+
+  .editorStatus {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,494 @@
+.tableCard,
+.formCard,
+.detailCard {
+  border: 1px solid var(--color-border);
+  border-radius: 1.15rem;
+  background: var(--color-glass-card);
+  box-shadow: 0 14px 36px
+    color-mix(in srgb, var(--color-dark-green) 7%, transparent);
+}
+.filters {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(11rem, 0.45fr) auto;
+  align-items: end;
+  gap: var(--space-4);
+}
+.filterPanel {
+  margin-block-end: var(--space-5);
+}
+.filters label,
+.searchField {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+.searchField div {
+  position: relative;
+}
+.searchField button {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 0.7rem;
+  inline-size: 1.8rem;
+  block-size: 1.8rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.loadingTable {
+  display: grid;
+  gap: var(--space-3);
+}
+.successNotice,
+.errorNotice {
+  margin-block-end: var(--space-4);
+  padding: 0.85rem 1rem;
+  border: 1px solid;
+  border-radius: 0.8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+.successNotice {
+  border-color: color-mix(in srgb, var(--color-green) 22%, transparent);
+  background: var(--color-success-surface);
+  color: var(--color-success);
+}
+.errorNotice {
+  border-color: rgb(220 38 38 / 20%);
+  background: var(--color-danger-surface);
+  color: var(--color-danger-foreground);
+}
+.tableCard {
+  overflow: visible;
+}
+.tableCard table {
+  inline-size: 100%;
+  min-inline-size: 0;
+  border-collapse: collapse;
+  text-align: start;
+}
+.tableCard th,
+.tableCard td {
+  padding: 1rem;
+  border-block-end: 1px solid var(--color-border);
+  text-align: start;
+  vertical-align: middle;
+}
+.tableCard th {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.tableCard td {
+  color: var(--color-text);
+  font-size: 0.82rem;
+}
+
+.sectionsTable th:nth-child(1) {
+  inline-size: 28%;
+}
+
+.sectionsTable th:nth-child(2) {
+  inline-size: 17%;
+}
+
+.sectionsTable th:nth-child(3) {
+  inline-size: 15%;
+}
+
+.sectionsTable th:nth-child(4) {
+  inline-size: 10%;
+}
+
+.sectionsTable th:nth-child(5) {
+  inline-size: 13%;
+}
+
+.sectionsTable th:nth-child(6) {
+  inline-size: 17%;
+}
+
+.sectionsTable td:nth-child(2) {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+}
+.tableCard tbody tr:last-child td {
+  border-block-end: 0;
+}
+.tableCard tbody tr:hover {
+  background: var(--color-primary-soft);
+}
+.tableCard td strong,
+.tableCard td small {
+  display: block;
+}
+.tableCard td small {
+  max-inline-size: 16rem;
+  overflow: hidden;
+  margin-block-start: 0.25rem;
+  color: var(--color-text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.status {
+  display: inline-flex;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.active {
+  background: var(--color-success-surface);
+  color: var(--color-success);
+}
+.inactive {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+}
+.actions,
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.actions :global(.ui-button) {
+  min-block-size: 2.2rem;
+  padding-inline: 0.65rem;
+  font-size: 0.75rem;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-block-start: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+.pagination div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.formCard {
+  overflow: visible;
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+.formGrid textarea {
+  min-block-size: 8rem;
+  resize: vertical;
+}
+.switchField {
+  display: flex;
+  align-items: center;
+  align-self: end;
+  gap: var(--space-3);
+  min-block-size: 5rem;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  background: var(--color-surface-muted);
+  cursor: pointer;
+}
+.switchField input {
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+  accent-color: var(--color-primary);
+}
+.switchField span {
+  display: grid;
+  gap: 0.25rem;
+}
+.switchField small {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4) clamp(1.2rem, 3vw, 2rem);
+  border-block-start: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+}
+.detailCard {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--color-brown) 20%, transparent);
+  background: var(--color-surface-muted);
+  box-shadow: 0 16px 42px
+    color-mix(in srgb, var(--color-dark-green) 9%, transparent);
+}
+.detailCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 1rem 1.15rem;
+  border-block-end: 1px solid
+    color-mix(in srgb, var(--color-brown) 14%, transparent);
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      var(--color-accent-soft),
+      transparent 30%
+    ),
+    linear-gradient(120deg, var(--color-surface), var(--color-primary-soft));
+}
+.detailCardHeader > div,
+.detailPanelTitle,
+.datesPanel > div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-inline-size: 0;
+}
+.detailCardHeader > div > div,
+.detailPanelTitle > div,
+.datesPanel > div > div {
+  display: grid;
+  gap: 0.12rem;
+  min-inline-size: 0;
+}
+.detailCardHeader h2,
+.detailCardHeader p,
+.detailPanelTitle h3,
+.detailPanelTitle p,
+.identityCard h3,
+.detailInfoCard p,
+.descriptionPanel > p {
+  margin: 0;
+}
+.detailCardHeader h2 {
+  color: var(--color-dark-green);
+  font-size: 0.95rem;
+}
+.detailCardHeader p,
+.detailPanelTitle p {
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.detailHeaderIcon,
+.detailPanelTitle > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 35%, transparent);
+  border-radius: 0.7rem;
+  background: var(--color-dark-green);
+  color: var(--color-gold);
+  box-shadow: 0 5px 12px
+    color-mix(in srgb, var(--color-dark-green) 16%, transparent);
+  font-size: 0.85rem;
+  font-weight: 850;
+}
+.detailOverview {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1.25fr) repeat(2, minmax(12rem, 0.75fr));
+  gap: var(--space-4);
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  padding-block-end: 0;
+}
+.identityCard,
+.detailInfoCard,
+.descriptionPanel,
+.datesPanel {
+  border: 1px solid color-mix(in srgb, var(--color-brown) 16%, transparent);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 8px 22px
+    color-mix(in srgb, var(--color-dark-green) 5%, transparent);
+}
+.identityCard,
+.detailInfoCard {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-inline-size: 0;
+  min-block-size: 8rem;
+  padding: 1rem;
+}
+.identityCard {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface),
+    var(--color-primary-soft)
+  );
+}
+.sectionMonogram {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 36%, transparent);
+  border-radius: 1rem;
+  background: linear-gradient(
+    145deg,
+    var(--color-green),
+    var(--color-dark-green)
+  );
+  color: var(--color-gold);
+  box-shadow: 0 8px 18px
+    color-mix(in srgb, var(--color-dark-green) 20%, transparent);
+  font-size: 1.35rem;
+  font-weight: 850;
+}
+.identityCard > div,
+.detailInfoCard > div {
+  display: grid;
+  gap: 0.3rem;
+  min-inline-size: 0;
+}
+.identityCard small,
+.detailInfoCard small,
+.datesPanel small {
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+.identityCard h3 {
+  color: var(--color-dark-green);
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.identityCard code {
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  overflow: hidden;
+  padding: 0.22rem 0.48rem;
+  border: 1px solid color-mix(in srgb, var(--color-brown) 16%, transparent);
+  border-radius: 0.45rem;
+  background: var(--color-surface);
+  color: var(--color-brown);
+  font-size: 0.68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detailInfoIcon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.85rem;
+  background: var(--color-primary-soft);
+  color: var(--color-green);
+  font-size: 1rem;
+  font-weight: 850;
+}
+.detailInfoCard strong {
+  color: var(--color-dark-teal);
+  font-size: 0.82rem;
+}
+.detailInfoCard p {
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+.descriptionPanel {
+  display: grid;
+  gap: 0.9rem;
+  margin: var(--space-4) clamp(1rem, 2.5vw, 1.5rem) 0;
+  padding: 1rem;
+}
+.detailPanelTitle h3 {
+  color: var(--color-dark-green);
+  font-size: 0.88rem;
+}
+.descriptionPanel > p {
+  padding: 0.9rem 1rem;
+  border-inline-start: 0.2rem solid var(--color-gold);
+  border-radius: 0.7rem;
+  background: var(--color-surface-muted);
+  color: var(--color-dark-teal);
+  font-size: 0.8rem;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+.datesPanel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: var(--space-4) clamp(1rem, 2.5vw, 1.5rem) clamp(1rem, 2.5vw, 1.5rem);
+  background: color-mix(in srgb, var(--color-brown) 14%, transparent);
+}
+.datesPanel > div {
+  padding: 0.9rem 1rem;
+  background: var(--color-surface);
+}
+.datesPanel > div > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-green);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+.datesPanel strong {
+  color: var(--color-dark-teal);
+  font-size: 0.78rem;
+}
+@media (max-width: 60rem) {
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+  .filters > button {
+    grid-column: 1 / -1;
+  }
+  .detailOverview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .identityCard {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 40rem) {
+  .filters,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .detailCardHeader {
+    display: grid;
+    align-items: flex-start;
+  }
+  .detailOverview,
+  .datesPanel {
+    grid-template-columns: 1fr;
+  }
+  .identityCard {
+    grid-column: auto;
+  }
+  .pagination,
+  .pagination div,
+  .formActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .pagination div button,
+  .formActions > * {
+    inline-size: 100%;
+  }
+}

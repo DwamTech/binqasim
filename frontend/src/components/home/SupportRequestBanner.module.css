@@ -1,0 +1,19 @@
+.section { position: relative; padding: clamp(52px, 7vw, 86px) 0; background: #f7f8f3; }
+.banner { position: relative; display: grid; width: 100%; min-height: 320px; margin: auto; padding-block: clamp(38px, 5vw, 62px); padding-inline: max(24px, calc((100vw - 1180px) / 2)); grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(24px, 4vw, 48px); overflow: hidden; border-block: 1px solid rgba(255,255,255,.15); color: #fff; background: radial-gradient(circle at 12% 18%, rgba(220,190,129,.24), transparent 27%), linear-gradient(90deg, rgba(5,35,15,.96) 0%, rgba(10,66,30,.88) 52%, rgba(13,82,38,.76) 100%), url("/aal-alashab-hero.webp") center 42% / cover no-repeat; box-shadow: 0 28px 75px rgba(11,58,26,.2); isolation: isolate; }
+.banner::before { position: absolute; inset: 0; z-index: -1; content: ""; opacity: .17; background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px); background-size: 40px 40px; mask-image: linear-gradient(90deg, #000, transparent 68%); }
+.banner::after { position: absolute; z-index: -1; width: 420px; height: 420px; inset-inline-end: -245px; bottom: -300px; content: ""; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; box-shadow: 0 0 0 45px rgba(255,255,255,.025), 0 0 0 90px rgba(255,255,255,.018); }
+.orbit { position: absolute; z-index: -1; top: -115px; right: 28%; width: 220px; height: 220px; border: 1px solid rgba(221,190,126,.13); border-radius: 50%; }
+.iconWrap { display: grid; width: clamp(76px, 8vw, 98px); height: clamp(76px, 8vw, 98px); place-items: center; border: 1px solid rgba(255,255,255,.23); border-radius: 28px 8px 28px 8px; color: #143d22; background: linear-gradient(145deg, #f5dfb3, #d3ae69); box-shadow: 0 16px 38px rgba(0,0,0,.2); transform: rotate(3deg); }
+.iconWrap svg { width: 38%; height: 38%; }
+.content { max-width: 610px; }
+.eyebrow { color: #e6c886; font-size: 13px; font-weight: 900; letter-spacing: .07em; }
+.content h2 { margin: 8px 0 8px; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.3; }
+.content p { margin: 0; color: rgba(255,255,255,.72); font-size: 15px; line-height: 1.9; }
+.actionArea { display: flex; min-width: 210px; align-items: center; flex-direction: column; gap: 14px; }
+.note { display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,.6); font-size: 11px; font-weight: 700; }.note svg { color: #e4c47f; }
+.actionArea a { display: flex; width: 100%; min-height: 58px; padding: 13px 24px; align-items: center; justify-content: center; gap: 11px; border-radius: 99px; color: #133d21; background: #fff; font-size: 15px; font-weight: 900; box-shadow: 0 12px 30px rgba(0,0,0,.18); transition: color .25s ease, background .25s ease, transform .25s ease; }
+.actionArea a:hover { color: #fff; background: #c49d59; transform: translateY(-3px); }.actionArea a svg { width: 19px; height: 19px; }
+:global(html[dir="ltr"]) .actionArea a svg { transform: rotate(-90deg); }
+@media (max-width: 850px) { .banner { grid-template-columns: auto 1fr; }.actionArea { grid-column: 1 / -1; width: 100%; align-items: flex-start; flex-direction: row; justify-content: space-between; }.actionArea a { width: auto; min-width: 190px; } }
+@media (max-width: 580px) { .section { padding-block: 44px; }.banner { min-height: auto; padding: 34px 22px; grid-template-columns: 1fr; background-position: 58% center; }.iconWrap { width: 68px; height: 68px; }.content h2 { font-size: 34px; }.actionArea { align-items: stretch; flex-direction: column; }.actionArea a { width: 100%; }.note { justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .actionArea a { transition: none; } }
